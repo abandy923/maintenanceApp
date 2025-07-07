@@ -1,0 +1,7 @@
+{
+  "name": "maintenanceApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
