@@ -17,7 +17,7 @@ import { Auth, signOut } from '@angular/fire/auth';
         <li>Generate performance reports</li>
       </ul>
       <div class="actions">
-        <button routerLink="/review-reports">Review Reports</button>
+        <button routerLink="/manager-reports">View All Reports</button>
         <button routerLink="/assign-tasks">Assign Tasks</button>
         <button (click)="logout()">Logout</button>
       </div>
@@ -46,20 +46,19 @@ import { Auth, signOut } from '@angular/fire/auth';
     .actions {
       margin-top: 1.5rem;
       display: flex;
-      flex-wrap: wrap;
       gap: 1rem;
     }
     button {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
-      background-color: #10dc60;
+      background-color: #3880ff;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
     button:hover {
-      background-color: #0ec254;
+      background-color: #3171e0;
     }
   `]
 })
@@ -73,3 +72,4 @@ export class ManagerDashboardComponent {
     });
   }
 }
+

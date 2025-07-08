@@ -1,23 +1,28 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { Auth } from '@angular/fire/auth';
-import { onAuthStateChanged } from 'firebase/auth';
+import { from, map, take } from 'rxjs';
+import { user } from 'rxfire/auth';
 
-export const authGuard: CanActivateFn = async () => {
+export const authGuard: CanActivateFn = () => {
   const auth = inject(Auth);
   const router = inject(Router);
 
-  const user = await new Promise((resolve) => {
-    onAuthStateChanged(auth, resolve);
-  });
-
-  if (user) {
-    return true;
-  } else {
-    router.navigate(['/']);
-    return false;
-  }
+  return from(user(auth)).pipe(
+    take(1),
+    map((currentUser) => {
+      if (currentUser) {
+        return true;
+      } else {
+        router.navigate(['/']);
+        return false;
+      }
+    })
+  );
 };
+
+
+
 
 
 

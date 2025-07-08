@@ -12,13 +12,13 @@ import { Auth, signOut } from '@angular/fire/auth';
       <h2>Technician Dashboard</h2>
       <p>Welcome, Technician! Here you can:</p>
       <ul>
-        <li>View assigned maintenance tasks</li>
-        <li>Update task status</li>
-        <li>Submit completion reports</li>
+        <li>Submit new maintenance reports</li>
+        <li>View assigned maintenance reports</li>
+        <li>Update status of reports</li>
       </ul>
       <div class="actions">
-        <button routerLink="/assigned-tasks">View Tasks</button>
-        <button routerLink="/submit-completion">Submit Report</button>
+        <button routerLink="/submit-report">Submit Maintenance Report</button>
+        <button routerLink="/technician-reports">View Reports</button>
         <button (click)="logout()">Logout</button>
       </div>
     </div>
@@ -46,20 +46,19 @@ import { Auth, signOut } from '@angular/fire/auth';
     .actions {
       margin-top: 1.5rem;
       display: flex;
-      flex-wrap: wrap;
       gap: 1rem;
     }
     button {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
-      background-color: #ff9500;
+      background-color: #3880ff;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
     button:hover {
-      background-color: #e28300;
+      background-color: #3171e0;
     }
   `]
 })
@@ -73,4 +72,5 @@ export class TechnicianDashboardComponent {
     });
   }
 }
+
 

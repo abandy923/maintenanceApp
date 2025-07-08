@@ -6,12 +6,14 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { environment } from './environments/environment';
 import { setPersistence, browserLocalPersistence } from 'firebase/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(appRoutes),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ]
 }).then(() => {
   // ✅ Set persistence *after* bootstrapping

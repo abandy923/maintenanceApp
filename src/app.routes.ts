@@ -30,8 +30,17 @@ export const appRoutes: Routes = [
       import('./app/screens/dashboard/operator-dashboard.component').then(
         (m) => m.OperatorDashboardComponent
       ),
-      canActivate: [authGuard],
+      canActivate: [authGuard]
   },
+  {
+  path: 'operator-reports',
+  loadComponent: () =>
+    import('./app/screens/submit-report/operator-reports.component').then(
+      (m) => m.OperatorReportsComponent
+    ),
+  canActivate: [authGuard],
+},
+
   {
     path: 'dashboard/technician',
     loadComponent: () =>
@@ -40,6 +49,13 @@ export const appRoutes: Routes = [
       ),
       canActivate: [authGuard],
   },
+  {
+  path: 'technician-reports',
+  loadComponent: () =>
+    import('./app/screens/submit-report/technician-reports.component').then(m => m.TechnicianReportsComponent),
+  canActivate: [authGuard],
+},
+
   {
   path: 'submit-report',
   loadComponent: () =>
@@ -57,6 +73,13 @@ export const appRoutes: Routes = [
       ),
       canActivate: [authGuard],
   },
+  {
+  path: 'manager-reports',
+  loadComponent: () =>
+    import('./app/screens/submit-report/manager-reports.component').then(m => m.ManagerReportsComponent),
+  canActivate: [authGuard],
+},
+
 
   {
     path: '**',
